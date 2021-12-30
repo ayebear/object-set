@@ -9,13 +9,13 @@ Requires node 16+ with module support.
 ### Yarn
 
 ```bash
-yarn add --dev objectset
+yarn add --dev @ayebear/object-set
 ```
 
 ### NPM
 
 ```bash
-npm i -D objectset
+npm i -D @ayebear/object-set
 ```
 
 ## Examples
