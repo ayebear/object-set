@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [
     "object",
@@ -16,5 +16,9 @@
     "map"
   ],
   "author": "Eric Hebert",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "prettier": "2.5.1"
+  }
 }
