@@ -1,5 +1,5 @@
 {
-  "name": "objectset",
+  "name": "@ayebear/object-set",
   "version": "1.0.0",
   "description": "Set-like structure with custom keying method",
   "type": "module",
