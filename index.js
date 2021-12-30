@@ -50,4 +50,10 @@ export default class ObjectSet {
   values() {
     return this._items.values()
   }
+
+  *[Symbol.iterator]() {
+    for (const value of this._items.values()) {
+      yield value
+    }
+  }
 }

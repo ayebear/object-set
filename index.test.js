@@ -84,3 +84,12 @@ test('forEach', () => {
     ['bar', { key: 'bar' }],
   ])
 })
+
+test('iteration', () => {
+  const s1 = new ObjectSet('key', [{ key: 'foo' }, { key: 'bar' }])
+  const results = []
+  for (const e of s1) {
+    results.push(e)
+  }
+  expect(results).toEqual([{ key: 'foo' }, { key: 'bar' }])
+})
