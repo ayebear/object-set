@@ -1,6 +1,6 @@
 {
   "name": "@ayebear/object-set",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Set-like structure with custom keying method",
   "type": "module",
   "main": "index.js",
