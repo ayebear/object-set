@@ -24,14 +24,15 @@ export default class ObjectSet {
 
   add(item) {
     this._items.set(this._getKey(item), item)
+    return this
   }
 
   clear() {
-    this._items.clear()
+    return this._items.clear()
   }
 
   delete(item) {
-    this._items.delete(this._getKey(item))
+    return this._items.delete(this._getKey(item))
   }
 
   entries() {
@@ -43,7 +44,7 @@ export default class ObjectSet {
   }
 
   has(item) {
-    this._items.has(this._getKey(item))
+    return this._items.has(this._getKey(item))
   }
 
   values() {
