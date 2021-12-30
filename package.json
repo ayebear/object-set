@@ -1,0 +1,20 @@
+{
+  "name": "objectset",
+  "version": "1.0.0",
+  "description": "Set-like structure with custom keying method",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "object",
+    "set",
+    "object-set",
+    "key",
+    "keyed",
+    "map"
+  ],
+  "author": "Eric Hebert",
+  "license": "MIT"
+}
