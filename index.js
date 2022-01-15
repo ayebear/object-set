@@ -27,12 +27,16 @@ export default class ObjectSet {
     return this
   }
 
+  get(itemOrKey) {
+    return this._items.get(this._getKeyFromItem(itemOrKey))
+  }
+
   clear() {
     return this._items.clear()
   }
 
-  delete(item) {
-    return this._items.delete(this._getKey(item))
+  delete(itemOrKey) {
+    return this._items.delete(this._getKeyFromItem(itemOrKey))
   }
 
   entries() {
@@ -43,8 +47,8 @@ export default class ObjectSet {
     return this._items.forEach(...args)
   }
 
-  has(item) {
-    return this._items.has(this._getKey(item))
+  has(itemOrKey) {
+    return this._items.has(this._getKeyFromItem(itemOrKey))
   }
 
   values() {
@@ -55,5 +59,14 @@ export default class ObjectSet {
     for (const value of this._items.values()) {
       yield value
     }
+  }
+
+  // Returns key from item or key
+  _getKeyFromItem(itemOrKey) {
+    if (this._items.has(itemOrKey)) {
+      // Is already a key
+      return itemOrKey
+    }
+    return this._getKey(itemOrKey)
   }
 }
