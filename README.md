@@ -26,9 +26,10 @@ Can use a string to grab the key automatically from the elements like `element[k
 
 ```javascript
 const s = new ObjectSet('id')
-s.add({ id: 'foo' })
+s.add({ id: 'foo' }) // s
 s.has({ id: 'foo' }) // true
-s.delete({ id: 'foo' })
+s.get({ id: 'foo' }) // { id: 'foo' }
+s.delete({ id: 'foo' }) // true
 ```
 
 ### With function
@@ -37,9 +38,22 @@ The function takes in the element and must return the key.
 
 ```javascript
 const s = new ObjectSet(e => `${e.x},${e.y}`)
-s.add({ x: 10, y: 10 })
+s.add({ x: 10, y: 10 }) // s
 s.has({ x: 10, y: 10 }) // true
-s.delete({ x: 10, y: 10 })
+s.get({ x: 10, y: 10 }) // { x: 10, y: 10 }
+s.delete({ x: 10, y: 10 }) // true
+```
+
+### Using keys
+
+Can use keys directly in `has()`, `get()`, and `delete()`. These work with both string/function for `ObjectSet` constructor arg.
+
+```javascript
+const s = new ObjectSet(e => `${e.x},${e.y}`)
+s.add({ x: 10, y: 10 }) // s
+s.has('10,10') // true
+s.get('10,10') // { x: 10, y: 10 }
+s.delete('10,10') // true
 ```
 
 ### Initialize
