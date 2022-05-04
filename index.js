@@ -3,18 +3,18 @@ export default class ObjectSet {
   // data: optional iterable array-like
   constructor(key, data) {
     this._items = new Map()
-    if (typeof key !== 'function' && typeof key !== 'string') {
-      throw new Error('Must pass function or string to ObjectSet constructor')
-    }
     if (typeof key === 'string') {
       this._getKey = item => item[key]
-    } else {
+    } else if (typeof key === 'function') {
       this._getKey = key
+    } else {
+      throw new Error(
+        `Invalid type "${typeof key}" passed to ObjectSet constructor`
+      )
     }
-    if (data) {
-      for (const item of data) {
-        this.add(item)
-      }
+    if (!data) return
+    for (const item of data) {
+      this.add(item)
     }
   }
 
@@ -31,34 +31,36 @@ export default class ObjectSet {
     return this._items.get(this._getKeyFromItem(itemOrKey))
   }
 
-  clear() {
-    return this._items.clear()
+  has(itemOrKey) {
+    return this._items.has(this._getKeyFromItem(itemOrKey))
   }
 
   delete(itemOrKey) {
     return this._items.delete(this._getKeyFromItem(itemOrKey))
   }
 
-  entries() {
-    return this._items.entries()
+  clear() {
+    return this._items.clear()
   }
 
   forEach(...args) {
     return this._items.forEach(...args)
   }
 
-  has(itemOrKey) {
-    return this._items.has(this._getKeyFromItem(itemOrKey))
+  entries() {
+    return this._items.entries()
+  }
+
+  keys() {
+    return this._items.keys()
   }
 
   values() {
     return this._items.values()
   }
 
-  *[Symbol.iterator]() {
-    for (const value of this._items.values()) {
-      yield value
-    }
+  [Symbol.iterator]() {
+    return this._items.values()
   }
 
   // Returns key from item or key

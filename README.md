@@ -64,6 +64,19 @@ Can pass an iterable array-like as the second arg with any type of key (string/f
 new ObjectSet('id', [{ id: 'foo' }, { id: 'bar' }])
 ```
 
+### Iteration
+
+Iterate through set values:
+
+```javascript
+const s = new ObjectSet('id', [{ id: 'foo' }, { id: 'bar' }])
+for (const v of s) console.log(v)
+// { id: 'foo' }
+// { id: 'bar' }
+```
+
+Can also get iterators to internal map keys using `.keys()` or `.entries()`.
+
 ### Other notes
 
-Can be other types of values besides objects, as long as your key function supports it. All common Set methods are supported, such as `values()` and `clear()`.
+Can be other types of values besides objects, as long as your key function supports it. All common Set methods are supported, such as `clear()`, and some Map methods are even supported.
