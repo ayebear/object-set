@@ -1,5 +1,4 @@
 import ObjectSet from './index.js'
-// const ObjectSet = require('./index.js')
 
 test('create ObjectSet', () => {
   const s1 = new ObjectSet('key')
@@ -78,12 +77,22 @@ test('clear', () => {
   expect(s1.size).toBe(0)
 })
 
-test('entries', () => {
+test('entries iterator', () => {
   const s1 = new ObjectSet('key', [{ key: 'foo' }, { key: 'bar' }])
   expect([...s1.entries()]).toEqual([
     ['foo', { key: 'foo' }],
     ['bar', { key: 'bar' }],
   ])
+})
+
+test('keys iterator', () => {
+  const s1 = new ObjectSet('key', [{ key: 'foo' }, { key: 'bar' }])
+  expect([...s1.keys()]).toEqual(['foo', 'bar'])
+})
+
+test('values iterator', () => {
+  const s1 = new ObjectSet('key', [{ key: 'foo' }, { key: 'bar' }])
+  expect([...s1.values()]).toEqual([{ key: 'foo' }, { key: 'bar' }])
 })
 
 test('forEach', () => {
